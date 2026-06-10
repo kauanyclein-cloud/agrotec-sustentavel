@@ -1,21 +1,19 @@
-let score = 100;
+// Aguarda o carregamento completo do documento HTML
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoAlternar = document.getElementById('btn-alternar');
+    const corpoPagina = document.body;
 
-function tomarDecisao(sustentavel) {
-    const feedback = document.getElementById("game-feedback");
-    const scoreVal = document.getElementById("score-val");
-    const progress = document.getElementById("progress");
-
-    if (sustentavel) {
-        score = Math.min(100, score + 10);
-        feedback.innerText = "Excelente escolha! O manejo sustentável preserva a biodiversidade e protege os polinizadores.";
-        feedback.style.color = "#27ae60";
-    } else {
-        score = Math.max(0, score - 25);
-        feedback.innerText = "Cuidado! O uso descontrolado de químicos prejudica o solo, contamina a água e quebra o equilíbrio.";
-        feedback.style.color = "#c0392b";
-    }
-
-    scoreVal.innerText = score;
-    progress.style.width = score + "%";
-}
-
+    // Função que ativa/desativa o modo focado em sustentabilidade
+    botaoAlternar.addEventListener('click', () => {
+        corpoPagina.classList.toggle('modo-sustentavel');
+        
+        // Altera o texto do botão dinamicamente para engajar o usuário
+        if (corpoPagina.classList.contains('modo-sustentavel')) {
+            botaoAlternar.textContent = "🟢 Modo Sustentável Ativo";
+            botaoAlternar.style.boxShadow = "0 0 15px #4caf50";
+        } else {
+            botaoAlternar.textContent = "⚡ Simular Futuro Sustentável";
+            botaoAlternar.style.boxShadow = "none";
+        }
+    });
+});
