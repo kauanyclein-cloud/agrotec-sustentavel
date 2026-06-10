@@ -3,48 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoAgro Conecta - Agrinho 2026</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Manejo Sustentável - Agrinho 2026</title>
+    <style>
+        :root {
+            --cor-antes-bg: #ffebee;
+            --cor-antes-borda: #e53935;
+            --cor-depois-bg: #e8f5e9;
+            --cor-depois-borda: #4caf50;
+            --agro-escuro: #1b5e20;
+            --agro-principal: #2e7d32;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9f6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--agro-escuro), var(--agro-principal));
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .introducao {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .introducao p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Estrutura de Comparação Antes e Depois */
+        .secao-comparacao {
+            margin-bottom: 4rem;
+        }
+
+        .secao-comparacao h2 {
+            color: var(--agro-escuro);
+            border-bottom: 2px solid var(--agro-principal);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .grid-antes-depois {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-antes-depois {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card-antes {
+            background-color: var(--cor-antes-bg);
+            border-top: 6px solid var(--cor-antes-borda);
+        }
+
+        .card-depois {
+            background-color: var(--cor-depois-bg);
+            border-top: 6px solid var(--cor-depois-borda);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .tag-antes { background-color: var(--cor-antes-borda); }
+        .tag-depois { background-color: var(--cor-depois-borda); }
+
+        .placeholder-imagem {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            color: #666;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Cores de Destaque no Texto */
+        .texto-alerta { color: #b71c1c; font-weight: bold; }
+        .texto-sucesso { color: #1b5e20; font-weight: bold; }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--agro-escuro);
+            color: white;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <div class="container">
-            <h1>EcoAgro Conecta</h1>
-            <p>Agrinho 2026: Agro Forte, Futuro Sustentável</p>
-        </div>
+        <h1>O Poder do Manejo Sustentável</h1>
+        <p>Agrinho 2026 • Agro Forte, Futuro Sustentável</p>
     </header>
 
     <main class="container">
-        <section class="card">
-            <h2>O Equilíbrio entre Produção e Meio Ambiente</h2>
-            <p>O grande desafio do nosso século é produzir alimentos para uma população crescente sem esgotar os recursos naturais do planeta. A tecnologia agrícola, o manejo correto do solo e a preservação das fontes de água são os pilares para garantir o futuro das próximas gerações.</p>
+        
+        <section class="introducao">
+            <p>Como equilibrar a alta produtividade no campo com a preservação da natureza? A resposta está nas escolhas de manejo. Veja abaixo o impacto visual e real das transformações agrícolas no Paraná.</p>
         </section>
 
-        <section class="card dynamic-game">
-            <h2>Simulador: Suas Decisões no Agro</h2>
-            <p>Imagine que você é um produtor rural. Tome decisões sustentáveis e veja o impacto no seu medidor de equilíbrio!</p>
-            
-            <div class="question-box">
-                <p id="game-text">Como você pretende combater as pragas na sua plantação?</p>
-                <div class="buttons">
-                    <button onclick="tomarDecisao(true)">Usar Controle Biológico (Insetos benéficos)</button>
-                    <button onclick="tomarDecisao(false)">Aplicar defensivos químicos sem controle</button>
+        <!-- EXEMPLO 1: SOLO -->
+        <section class="secao-comparacao">
+            <h2>🌱 1. Conservação e Vida do Solo</h2>
+            <div class="grid-antes-depois">
+                
+                <!-- ANTES -->
+                <div class="card card-antes">
+                    <span class="tag tag-antes">Antes: Solo Desprotegido</span>
+                    <!-- DICA: Substitua o link abaixo pela foto real do solo degradado da sua pesquisa -->
+                    <div class="placeholder-imagem" style="background-image: url('https://unsplash.com');"></div>
+                    <p>O manejo convencional sem cobertura deixa a terra exposta ao sol e às chuvas fortes. Isso gera <span class="texto-alerta">erosão severa</span>, perda de nutrientes e empobrecimento da biodiversidade subterrânea.</p>
                 </div>
-            </div>
 
-            <div class="score-board">
-                <p>Nível de Sustentabilidade: <span id="score-val">100</span>%</p>
-                <div class="progress-bar"><div id="progress"></div></div>
+                <!-- DEPOIS -->
+                <div class="card card-depois">
+                    <span class="tag tag-depois">Depois: Sistema Plantio Direto</span>
+                    <!-- DICA: Substitua o link abaixo pela foto real da horta/lavoura protegida -->
+                    <div class="placeholder-imagem" style="background-image: url('https://unsplash.com');"></div>
+                    <p>Com a palhada do plantio direto protegendo o solo, a umidade é preservada, a temperatura cai e a matéria orgânica aumenta. O resultado é um solo <span class="texto-sucesso">vivo, resiliente e muito mais produtivo</span>.</p>
+                </div>
+
             </div>
-            <p id="game-feedback"></p>
         </section>
+
+        <!-- EXEMPLO 2: DEFENSIVOS VS BIOINSUMOS -->
+        <section class="secao-comparacao">
+            <h2>🐛 2. Controle de Pragas e Insumos</h2>
+            <div class="grid-antes-depois">
+                
+                <!-- ANTES -->
+                <div class="card card-antes">
+                    <span class="tag tag-antes">Antes: Dependência Química</span>
+                    <div class="placeholder-imagem" style="background-image: url('https://unsplash.com');"></div>
+                    <p>O uso excessivo e calendarizado de defensivos químicos sintéticos pode causar a resistência de pragas, além de aumentar o risco de <span class="texto-alerta">contaminação química</span> de polinizadores benéficos, como as abelhas.</p>
+                </div>
+
+                <!-- DEPOIS -->
+                <div class="card card-depois">
+                    <span class="tag tag-depois">Depois: Manejo Integrado (MIP) e Bioinsumos</span>
+                    <div class="placeholder-imagem" style="background-image: url('https://unsplash.com');"></div>
+                    <p>Ao adotar inimigos naturais biológicos e bioinsumos, o produtor combate as pragas de forma cirúrgica. Isso garante <span class="texto-sucesso">alimentos mais seguros</span> e mantém o equilíbrio ecológico da propriedade rústica.</p>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2026 - Desenvolvido para o Concurso Agrinho Categoria Programação</p>
+        <p>Projeto Desenvolvido pelo 1º Ano do Ensino Médio | Colégio Estadual do Paraná</p>
+        <p>Hospedado com orgulho no GitHub Pages para o Programa Agrinho 2026</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
-
