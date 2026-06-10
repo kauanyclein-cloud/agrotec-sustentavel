@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAgro Conecta - Agrinho 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>EcoAgro Conecta</h1>
+            <p>Agrinho 2026: Agro Forte, Futuro Sustentável</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>O Equilíbrio entre Produção e Meio Ambiente</h2>
+            <p>O grande desafio do nosso século é produzir alimentos para uma população crescente sem esgotar os recursos naturais do planeta. A tecnologia agrícola, o manejo correto do solo e a preservação das fontes de água são os pilares para garantir o futuro das próximas gerações.</p>
+        </section>
+
+        <section class="card dynamic-game">
+            <h2>Simulador: Suas Decisões no Agro</h2>
+            <p>Imagine que você é um produtor rural. Tome decisões sustentáveis e veja o impacto no seu medidor de equilíbrio!</p>
+            
+            <div class="question-box">
+                <p id="game-text">Como você pretende combater as pragas na sua plantação?</p>
+                <div class="buttons">
+                    <button onclick="tomarDecisao(true)">Usar Controle Biológico (Insetos benéficos)</button>
+                    <button onclick="tomarDecisao(false)">Aplicar defensivos químicos sem controle</button>
+                </div>
+            </div>
+
+            <div class="score-board">
+                <p>Nível de Sustentabilidade: <span id="score-val">100</span>%</p>
+                <div class="progress-bar"><div id="progress"></div></div>
+            </div>
+            <p id="game-feedback"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desenvolvido para o Concurso Agrinho Categoria Programação</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
