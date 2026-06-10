@@ -1,105 +1,119 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Variáveis de Cores para Transição Dinâmica */
+:root {
+    --bg-principal: #f4f7f5;
+    --texto: #333;
+    --cor-header: linear-gradient(135deg, #1b5e20, #2e7d32);
+    
+    /* Cores dos Blocos de Impacto */
+    --antes-bg: #ffebee;
+    --antes-borda: #e53935;
+    --depois-bg: #e8f5e9;
+    --depois-borda: #4caf50;
+}
+
+/* Estado quando o filtro de Sustentabilidade estiver ativo */
+body.modo-sustentavel {
+    --bg-principal: #e8f5e9;
+    --cor-header: linear-gradient(135deg, #2e7d32, #4caf50);
 }
 
 body {
-    background-color: #f4f7f4;
-    color: #2c3e50;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-principal);
+    color: var(--texto);
+    transition: background-color 0.5s ease;
 }
 
 header {
-    background: linear-gradient(135deg, #1e5631, #4c9a2a);
+    background: var(--cor-header);
     color: white;
     text-align: center;
-    padding: 40px 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 2.5rem 1rem;
+    transition: background 0.5s ease;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.btn-interativo {
+    background-color: #ffffff;
+    color: #2e7d32;
+    border: 2px solid #ffffff;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-interativo:hover {
+    background-color: #2e7d32;
+    color: white;
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    padding-bottom: 5rem;
+}
+
+.grid-antes-depois {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .grid-antes-depois { grid-template-columns: 1fr; }
 }
 
 .card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    margin-top: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-h2 {
-    color: #1e5631;
-    margin-bottom: 15px;
+.card-antes {
+    background-color: var(--antes-bg);
+    border-top: 6px solid var(--antes-borda);
 }
 
-.buttons {
-    display: flex;
-    gap: 15px;
-    margin: 20px 0;
-    flex-wrap: wrap;
+.card-depois {
+    background-color: var(--depois-bg);
+    border-top: 6px solid var(--depois-borda);
 }
 
-button {
-    background-color: #4c9a2a;
+.tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
     color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-    flex: 1;
-    min-width: 200px;
+    margin-bottom: 1rem;
 }
 
-button:hover {
-    background-color: #1e5631;
-}
+.tag-antes { background-color: var(--antes-borda); }
+.tag-depois { background-color: var(--depois-borda); }
 
-.score-board {
-    margin-top: 20px;
-    background: #eef7ee;
-    padding: 15px;
-    border-radius: 8px;
-}
-
-.progress-bar {
-    background: #ddd;
-    border-radius: 10px;
-    height: 15px;
-    overflow: hidden;
-    margin-top: 5px;
-}
-
-#progress {
-    background: #4c9a2a;
+.img-container img {
     width: 100%;
-    height: 100%;
-    transition: width 0.5s;
-}
-
-#game-feedback {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #27ae60;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
 }
 
 footer {
     text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-    color: #7f8c8d;
-    font-size: 0.9rem;
+    padding: 1.5rem;
+    background-color: #1b5e20;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
-
